@@ -32,8 +32,10 @@ def predict():
 	num_encoded=scaled.transform(num)
 	final=np.hstack(([cat_encoded,num_encoded]))
 	prediction=modell.predict(final)
-	return render_template("index2.html",prediction_text=f"Your vehicle will emit  {prediction[0]} grams per kilometer to the atmosphere")
-   	
+	if prediction[0]>251:
+	  return render_template("index2.html",prediction_text=f"Your vehicle will emit  {np.round(prediction[0],2)} grams per kilometer to the atmosphere.This emits too much to the atmosphere")
+	else:
+   	  return render_template("index2.html",prediction_text=f"Your vehicle emits {np.round(prediction[0],2)} grams per kilometer. This is a good range hence, importation of {make},{model} of engine {engine} will be granted. ")
 
 if __name__ == '__main__':
     app.run(debug=False)
