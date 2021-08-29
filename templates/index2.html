@@ -20,10 +20,13 @@
 			float: right;
 			width: 30%;
 			margin-top: 30px;
+			padding: 5rem 0rem
+
 		}
 		.w3-main{
 			float: left;
 			width: 70%;
+			padding: 5rem;
 		}
 
 
@@ -49,14 +52,14 @@
 
 <div class="container-fluid">
 		<form action="{{ url_for("predict")}}" method="POST" id="myform">
-				<input type="text" class="ini" name="make" placeholder="Car make" ><br><br>
-				<input type="text" class="ini"  name="model" placeholder="Car model" ><br><br>
-				<input type="text" class="ini" name="transmission" placeholder="Transmission" ><br><br>
-				<input type="text" class="ini" name="engine" placeholder="Engine size(litres)" ><br><br>
-				<input type="text" class="ini" name="cylinders" placeholder="Number of cylinders" ><br><br>
-				<input type="text" class="ini" name="fueltype" placeholder="Fuel Type"><br><br>
-				<input type="text" class="ini" name="mpg" placeholder="Mpg"><br><br>
-				<input type="submit" name=""> <br>
+				<input type="text" class="ini" name="make" placeholder="Car make" required ><br><br>
+				<input type="text" class="ini"  name="model" placeholder="Car model" required><br><br>
+				<input type="text" class="ini" name="transmission" placeholder="Transmission" required ><br><br>
+				<input type="text" class="ini" name="engine" placeholder="Engine size(litres)" required><br><br>
+				<input type="text" class="ini" name="cylinders" placeholder="Number of cylinders" required><br><br>
+				<input type="text" class="ini" name="fueltype" placeholder="Fuel Type" required><br><br>
+				<input type="text" class="ini" name="mpg" placeholder="Mpg" required><br><br>
+				<input type="submit" class="btn btn-success" name=""> <br>
 				{{ prediction_text}}
 	</form>
 </div>
